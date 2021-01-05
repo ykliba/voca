@@ -1,0 +1,6 @@
+version: "3.8"
+services:
+  voca:
+    build: ./infra/php
+    volumes:
+      - ./backend:/work
