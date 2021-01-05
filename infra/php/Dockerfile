@@ -6,13 +6,11 @@ ENV COMPOSER_ALLOW_SUPERUSER=1 \
 
 COPY --from=composer:1.10 /usr/bin/composer /usr/bin/composer
 
-RUN apt-get update \
-  && apt-get install -y wget git unzip libpq-dev \
-  && : 'Install Node.js' \
-  &&  curl -sL https://deb.nodesource.com/setup_12.x | bash - \
-  && apt-get install -y nodejs \
-  && : 'Install PHP Extensions' \
-  && docker-php-ext-install -j$(nproc) pdo_pgsql 
+RUN apt-get update && \
+  apt-get -y install git unzip libzip-dev libicu-dev libonig-dev && \
+  apt-get clean && \
+  rm -rf /var/lib/apt/lists/* && \
+  docker-php-ext-install intl pdo_mysql zip bcmath
 
 
 COPY ./php.ini /usr/local/etc/php/php.ini
