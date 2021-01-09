@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 
 // ページコンポーネントをインポートする
 import Index from './pages/Index.vue'
+import Login from './pages/Login.vue'
 
 
 
@@ -15,11 +16,16 @@ const routes = [
   {
     path: '/',
     component: Index
+  },
+  {
+    path: '/login',
+    component: Login
   }
 ]
 
 // VueRouterインスタンスを作成する
 const router = new VueRouter({
+  mode: 'history',
   routes
 })
 

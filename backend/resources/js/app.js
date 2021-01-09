@@ -1,7 +1,3 @@
-import Vue from 'vue'
-import router from './router'
-import App from './App.vue'
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -10,9 +6,7 @@ import App from './App.vue'
 
 require('./bootstrap');
 
-window.Vue = require('vue');
-
-
+window.Vue = require('vue').default;
 
 /**
  * The following block of code may be used to automatically register your
@@ -35,7 +29,4 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 const app = new Vue({
     el: '#app',
-    router,
-    components: { App },
-    template: '<App />'
 });
